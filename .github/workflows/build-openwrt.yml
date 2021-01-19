@@ -18,8 +18,8 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  schedule:
-    - cron: 0 12 * * 5
+  # schedule:
+    # - cron: 0 12 * * 5
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -31,7 +31,7 @@ env:
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: true
-  UPLOAD_WETRANSFER: false
+  UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
 
@@ -177,7 +177,7 @@ jobs:
         files: ${{ env.FIRMWARE }}/*
 
     - name: Delete workflow runs
-      # uses: ActionsRML/delete-workflow-runs@main
+      # uses: ActionsRML/delete-workflow-runs@main  or GitRML/
       uses: Mattraks/delete-workflow-runs@main
       with:
         retain_days: 1
